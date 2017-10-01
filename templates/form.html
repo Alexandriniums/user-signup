@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    .error {{color: red; }}
+</style>
+    <h2>Signup</h2>
+    <form method='POST'>
+        <table>
+            <tr>
+                <td><label for="username" value="">Username:</label></td>
+                <td><input type="text" id="username" name="username" value='{username}' /></td> <!-- username field: no spaces, > 3 and < 20 characters <p class=error>{{username_error}}</p>-->
+                <td><p class="error">{username_err}</p></td>
+            </tr>
+            <tr>
+                <td><label for="pw">Password:</label></td>
+                <td><input type="password" id="pw" name="pw" value='{pw}' /></td> <!-- password field -->
+                <td><p class="error">{pw_err}</p></td>
+            </tr>
+            <tr>
+                <td><label for="confirm-pw">Confirm password:</label></td>
+                <td><input type="password" id="confirm-pw" name="confirm-pw" value='{pw_confirm}' /></td> <!-- somehow validate pw: must match prior pw field -->
+                <td><p class="error">{pw_confirm_err}</p></td>
+            </tr>
+            <tr>
+                <td><label for="email" value="">Email (optional):</label></td>
+                <td><input type="text" id="email" name="email"/></td> <!-- email fiel: can be empty BUT if not, must have @ char and . char, no spaces, b/t 3020 char longd -->
+                <td><p class="error">{email_err}</p></td>
+            </tr>
+        </table>
+        <br>
+            <input type="submit" id="submit" name="submit">
+    </form>
+
+{% endblock %}
+
